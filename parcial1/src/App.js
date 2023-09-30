@@ -1,27 +1,20 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './Login';
-import LoginPass from './LoginPass';
-import Detail from './Detail';
+import Login from './components/Login.js';
+import Detail from './components/Detail.js';
+import Carro from './components/Carro.js';
 
 function App() {
 
-  const [dataGET, setDataGet] = useState("{}")
-  
- 
-
-  useEffect(()=>{
-    fetch("https://my.api.https://raw.githubusercontent.com/Carlos-301/Parcial-1-Web/main/datos.json.com/users.json?key=").then(response => response.json()).then(data => setDataGet(JSON.stringify(data)))
-  })
 
   return (
     <div className="App">
      <BrowserRouter>
        <Routes>
          <Route path="/" element={<Login />} />
-         <Route path="/pass" element={<LoginPass />} />
-         <Route path="/mascotas/:mascotaId" element={<Detail />} />
+         <Route path="/carro" element={<Carro />} />
+         <Route path="/carro/detail/:partName" element={<Detail />} />
        </Routes>
      </BrowserRouter>
     </div>
